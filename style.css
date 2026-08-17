@@ -1,0 +1,995 @@
+/* =========================================
+   AI LANGUAGE TRANSLATOR
+   COMPACT DESKTOP VERSION
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+   ========================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17298f,
+            #34248d,
+            #57317c
+        );
+
+    color: #ffffff;
+
+    padding: 15px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.container {
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    background: #151819;
+
+    border-radius: 22px;
+
+    padding: 24px 30px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 32px;
+
+    margin-bottom: 7px;
+
+    color: #e8e6e2;
+}
+
+.header p {
+    font-size: 15px;
+
+    color: #aaa5a0;
+}
+
+
+/* =========================================
+   LANGUAGE SECTION
+   ========================================= */
+
+.language-section {
+    display: grid;
+
+    grid-template-columns: 1fr 55px 1fr;
+
+    gap: 20px;
+
+    align-items: end;
+
+    margin-bottom: 22px;
+}
+
+.language-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.language-box label,
+.text-section > label {
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #d5d0cb;
+}
+
+
+/* =========================================
+   LANGUAGE DROPDOWN
+   ========================================= */
+
+select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #383c3d;
+
+    background: #171a1b;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #4d7cff;
+}
+
+
+/* =========================================
+   SWAP BUTTON
+   ========================================= */
+
+.swap-button {
+    width: 55px;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #263fce;
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.swap-button:hover {
+    transform: rotate(180deg) scale(1.05);
+
+    background: #3152e5;
+}
+
+
+/* =========================================
+   TRANSLATION AREA
+   ========================================= */
+
+.translation-area {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.text-section {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* =========================================
+   TEXT BOX WRAPPER
+   ========================================= */
+
+.text-box-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   TEXTAREA
+   ========================================= */
+
+textarea {
+    width: 100%;
+
+    height: 200px;
+
+    resize: vertical;
+
+    padding: 17px 55px 17px 17px;
+
+    border-radius: 14px;
+
+    border: 1px solid #414445;
+
+    background: #3b3b3b;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #4d7cff;
+}
+
+textarea::placeholder {
+    color: #8d8985;
+}
+
+
+/* =========================================
+   MIC + SPEAKER BUTTON
+   ========================================= */
+
+.inside-button {
+    position: absolute;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    width: 46px;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #263fce;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    z-index: 2;
+}
+
+.inside-button:hover {
+    transform: scale(1.08);
+
+    background: #3152e5;
+}
+
+
+/* =========================================
+   RECORDING ANIMATION
+   ========================================= */
+
+.inside-button.recording {
+    background: #e53935;
+
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   CHARACTER COUNTER
+   ========================================= */
+
+.character-count {
+    text-align: left;
+
+    color: #aaa5a0;
+
+    font-size: 13px;
+
+    margin-top: 1px;
+}
+
+
+/* =========================================
+   TRANSLATE BUTTON
+   ========================================= */
+
+.translate-button {
+    width: 100%;
+
+    height: 52px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #263fce;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.translate-button:hover {
+    background: #3152e5;
+
+    transform: translateY(-2px);
+}
+
+.translate-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   STATUS MESSAGE
+   ========================================= */
+
+.status-message {
+    min-height: 22px;
+
+    text-align: center;
+
+    margin-top: 14px;
+
+    font-size: 14px;
+
+    color: #aaa5a0;
+}
+
+.status-success {
+    color: #62a5ff;
+}
+
+.status-error {
+    color: #ff7777;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+   ========================================= */
+
+.action-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 17px;
+}
+
+.action-button {
+    padding: 11px 22px;
+
+    border-radius: 11px;
+
+    border: 1px solid #3c4041;
+
+    background: #151819;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.action-button:hover {
+    background: #25292a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        max-width: 750px;
+
+        padding: 22px 20px;
+
+        border-radius: 20px;
+    }
+
+    .header {
+        margin-bottom: 22px;
+    }
+
+    .header h1 {
+        font-size: 29px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .language-section {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .swap-button {
+        justify-self: center;
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+    .translation-area {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    textarea {
+        height: 190px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        width: 100%;
+
+        padding: 20px 14px;
+
+        border-radius: 17px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .language-box label,
+    .text-section > label {
+        font-size: 16px;
+    }
+
+    select {
+        height: 46px;
+
+        font-size: 15px;
+    }
+
+    textarea {
+        height: 180px;
+
+        font-size: 16px;
+
+        padding: 15px 52px 15px 15px;
+    }
+
+    .inside-button {
+        width: 44px;
+
+        height: 44px;
+
+        right: 9px;
+
+        bottom: 9px;
+
+        font-size: 18px;
+    }
+
+    .translate-button {
+        height: 50px;
+
+        font-size: 18px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .action-button {
+        width: 100%;
+    }
+
+    footer {
+        margin-top: 20px;
+
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   PROFESSIONAL APP SPLASH SCREEN
+   ========================================= */
+
+#splash-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #182b78 0%,
+            #0d1538 35%,
+            #070a17 75%,
+            #04050c 100%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+/* Decorative glow */
+
+#splash-screen::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45, 92, 255, 0.20),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    animation: backgroundGlow 3s ease-in-out infinite;
+}
+
+
+/* Splash Content */
+
+.splash-content {
+    position: relative;
+
+    width: 90%;
+    max-width: 520px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Logo */
+
+.splash-logo {
+    width: 260px;
+
+    max-width: 65vw;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 20px rgba(48, 105, 255, 0.55));
+
+    animation:
+        logoEnter 1.2s cubic-bezier(.17,.67,.35,1.2);
+}
+
+
+/* Application Name */
+
+.splash-content h1 {
+
+    margin-top: 15px;
+
+    margin-bottom: 8px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: #f4f5ff;
+
+    animation: fadeUp 1s ease 0.3s both;
+}
+
+
+/* Tagline */
+
+.splash-tagline {
+
+    margin: 0;
+
+    color: #aeb8dc;
+
+    font-size: 15px;
+
+    letter-spacing: 0.8px;
+
+    animation: fadeUp 1s ease 0.5s both;
+}
+
+
+/* =========================================
+   LOADING SECTION
+   ========================================= */
+
+.loading-section {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    margin-top: 40px;
+
+    animation: fadeUp 1s ease 0.7s both;
+}
+
+
+/* Loading information */
+
+.loading-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    color: #c5cbea;
+
+    font-size: 13px;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* Percentage */
+
+#loading-percent {
+
+    color: #63a4ff;
+
+    font-weight: bold;
+
+    min-width: 38px;
+
+    text-align: right;
+}
+
+
+/* Progress background */
+
+.progress-container {
+
+    width: 100%;
+
+    height: 7px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Progress bar */
+
+#progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3152e5,
+            #4f8cff,
+            #7b5cff
+        );
+
+    box-shadow:
+        0 0 12px rgba(75, 130, 255, 0.8);
+
+    position: relative;
+
+    transition: width 0.08s linear;
+}
+
+
+/* Moving shine */
+
+#progress-bar::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 80px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.65),
+            transparent
+        );
+
+    animation: progressShine 1.2s linear infinite;
+}
+
+
+/* Loading status */
+
+#loading-status {
+
+    margin-top: 15px;
+
+    color: #777fa5;
+
+    font-size: 13px;
+
+    min-height: 20px;
+
+    animation: fadeStatus 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   MAIN APP
+   ========================================= */
+
+#main-app {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+
+#main-app.show {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes logoEnter {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(0.65)
+            translateY(20px);
+    }
+
+    70% {
+        transform:
+            scale(1.04)
+            translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes progressShine {
+
+    from {
+        transform: translateX(-100px);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
+
+
+@keyframes backgroundGlow {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+
+@keyframes fadeStatus {
+
+    0% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.45;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .splash-logo {
+        width: 210px;
+    }
+
+    .splash-content h1 {
+        font-size: 24px;
+    }
+
+    .splash-tagline {
+        font-size: 13px;
+    }
+
+    .loading-section {
+        max-width: 320px;
+    }
+
+}

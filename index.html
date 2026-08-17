@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- =========================================
+     PROFESSIONAL SPLASH SCREEN
+     ========================================= -->
+
+<div id="splash-screen">
+
+    <div class="splash-content">
+
+        <!-- Logo -->
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="AI Language Translator"
+            class="splash-logo"
+        >
+
+        <!-- App Name -->
+        <h1>AI Language Translator</h1>
+
+        <!-- Tagline -->
+        <p class="splash-tagline">
+            Breaking Language Barriers with AI
+        </p>
+
+        <!-- Loading Section -->
+        <div class="loading-section">
+
+            <div class="loading-info">
+                <span>Initializing Translator</span>
+                <span id="loading-percent">0%</span>
+            </div>
+
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+
+        </div>
+
+        <!-- Loading Status -->
+        <p id="loading-status">
+            Starting application...
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     MAIN APPLICATION
+     ========================================= -->
+
+<div id="main-app">
+
+    <!-- YOUR EXISTING TRANSLATOR UI GOES HERE -->
+
+
+</div>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>AI Language Translator</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <h1>
+                🌐 AI Language Translator
+            </h1>
+
+            <p>
+                Translate text between multiple Indian and international languages
+            </p>
+
+        </header>
+
+
+        <!-- Language Selection -->
+        <section class="language-section">
+
+            <div class="language-box">
+
+                <label for="sourceLanguage">
+                    From
+                </label>
+
+                <select id="sourceLanguage">
+                </select>
+
+            </div>
+
+
+            <!-- Swap Button -->
+            <button
+                id="swapButton"
+                class="swap-button"
+                title="Swap languages">
+
+                ⇄
+
+            </button>
+
+
+            <div class="language-box">
+
+                <label for="targetLanguage">
+                    To
+                </label>
+
+                <select id="targetLanguage">
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Translation Area -->
+        <section class="translation-area">
+
+            <!-- Input -->
+            <div class="text-section">
+
+                <label>
+                    Enter Text
+                </label>
+
+                <div class="text-box-wrapper">
+
+                    <textarea
+                        id="inputText"
+                        maxlength="5000"
+                        placeholder="Type or paste your text here..."></textarea>
+
+
+                    <!-- Microphone -->
+                    <button
+                        id="micButton"
+                        class="inside-button mic-button"
+                        title="Voice input">
+
+                        🎙
+
+                    </button>
+
+                </div>
+
+                <div class="character-count">
+                    <span id="charCount">0</span> / 5000 characters
+                </div>
+
+            </div>
+
+
+            <!-- Output -->
+            <div class="text-section">
+
+                <label>
+                    Translation
+                </label>
+
+                <div class="text-box-wrapper">
+
+                    <textarea
+                        id="outputText"
+                        readonly
+                        placeholder="Your translation will appear here..."></textarea>
+
+
+                    <!-- Speaker -->
+                    <button
+                        id="speakButton"
+                        class="inside-button speak-button"
+                        title="Listen to translation">
+
+                        🔊
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Translate Button -->
+        <button
+            id="translateButton"
+            class="translate-button">
+
+            Translate
+
+        </button>
+
+
+        <!-- Status Message -->
+        <div id="statusMessage"
+            class="status-message">
+        </div>
+
+
+        <!-- Bottom Buttons -->
+        <div class="action-buttons">
+
+            <button
+                id="copyButton"
+                class="action-button">
+
+                📋 Copy
+
+            </button>
+
+
+            <button
+                id="clearButton"
+                class="action-button">
+
+                🗑️ Clear
+
+            </button>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                AI Language Translator 
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>
